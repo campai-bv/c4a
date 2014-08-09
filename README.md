@@ -12,6 +12,23 @@ setup with these configuration files.
 
 
 - zarafa
+   server.cfg
+   ldap.cfg
+   00createstore create store script with language selection
+   
 - ldap
+   slapd.cfg
+   needed addition schema files (c4a specific)
+
 - postfix
+   main.cf with ssl/tls
+   main.cf.no.tls.cf with no ssl/tls
+
 - helper scripts
+   various scripts
+   
+For a basic setup, help with the installation please send an email to :
+
+Development and Operations - <devops@campai.nl>
+Reseller Information       - <sales@campai.nl>
+
