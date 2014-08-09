@@ -12,9 +12,9 @@ setup with these configuration files.
 
 
 - zarafa
-   server.cfg
-   ldap.cfg
-   00createstore create store script with language selection
+ server.cfg
+ ldap.cfg
+ 00createstore create store script with language selection
    
 - ldap
    slapd.cfg
