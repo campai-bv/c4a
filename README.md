@@ -30,5 +30,6 @@ setup with these configuration files.
 For a basic setup, help with the installation please send an email to :
 
 Development and Operations - <devops@campai.nl>
+
 Reseller Information       - <sales@campai.nl>
 
