@@ -1,0 +1,32 @@
+#! /bin/sh
+
+# Create a Zarafa user for an already existing external user.  Create
+# and initialize the user's stores.
+
+PATH=$PATH:/sbin:/usr/local/sbin:/usr/sbin
+
+# The ZARAFA_USER variable from the server will always be in UTF-8
+# format.  The --utf8 option must be set before this value is used,
+# since the current locale isn't necessarily UTF-8.
+# zarafa-admin --utf8 --create-store "${ZARAFA_USER}" --lang "${ZARAFA_LANG}"
+
+
+# Lookup the users language, not found default to en_EN.utf8                                                                                                                                                                                 
+#                                                                                                                                                                                                                                            
+
+# EDIT THIS!
+# Make sure the baseDN reflects your setup
+ZARAFA_LANG=`ldapsearch -h 127.0.0.1 -x -b "cn=zarafa,cn=service,ou=yourreseller,dc=c4a,dc=nl" mail=${ZARAFA_USER} | grep mailboxStoreLang | cut -d " " -f2`
+
+if [ -e ${ZARAFA_LANG} ] ; then
+
+        ZARAFA_LANG="en_US.utf8"
+
+fi
+
+echo " -- Creating store started -- " >> /tmp/create.list
+echo "Creating store ${ZARAFA_USER} with language ${ZARAFA_LANG}" >> /tmp/create.list
+echo "Creating with the follwing line : " >> /tmp/create.list
+echo "zarafa-admin --utf8 --create-store ${ZARAFA_USER} --lang ${ZARAFA_LANG}.utf8" >> /tmp/create.list
+zarafa-admin --utf8 --create-store "${ZARAFA_USER}" --lang "${ZARAFA_LANG}.utf8" >> /tmp/create.list
+echo " -- Creating store finished -- " >> /tmp/create.list
