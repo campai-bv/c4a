@@ -22,7 +22,6 @@ ldap
 
 postfix
 - main.cf with ssl/tls
-- main.cf.no.tls.cf with no ssl/tls
 
 helper scripts
 - various scripts
